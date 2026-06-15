@@ -1,287 +1,63 @@
+
 {
-  "theme": {
-    "background_color": "#F9FAFB",
-    "text_color": "#111827",
-    "border_color": "#D1D5DB",
-    "error_color": "#B91C1C"
-  },
-  "form_title": "Full Edge-Case Test Form",
-  "fields": [
-
-    {
-      "id": "plain_required",
-      "order": 1,
-      "type": "TEXT",
-      "subtype": "PLAIN",
-      "label": "Full Name",
-      "placeholder": "e.g., John Doe",
-      "max_length": 40,
-      "error_message": "Full name is required.",
-      "required": true
-    },
-
-    {
-      "id": "plain_optional_no_placeholder",
-      "order": 2,
-      "type": "TEXT",
-      "subtype": "PLAIN",
-      "label": "Nickname (optional)",
-      "required": false
-    },
-
-    {
-      "id": "plain_regex_email",
-      "order": 3,
-      "type": "TEXT",
-      "subtype": "PLAIN",
-      "label": "Email Address",
-      "placeholder": "you@example.com",
-      "error_message": "Enter a valid email address.",
-      "validation_regex": "[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,}",
-      "required": true
-    },
-
-    {
-      "id": "plain_regex_optional",
-      "order": 4,
-      "type": "TEXT",
-      "subtype": "PLAIN",
-      "label": "Twitter Handle (optional, @ prefix)",
-      "placeholder": "@handle",
-      "error_message": "Must start with @ followed by letters, numbers or underscores.",
-      "validation_regex": "@[A-Za-z0-9_]{1,15}",
-      "required": false
-    },
-
-    {
-      "id": "number_required",
-      "order": 5,
-      "type": "TEXT",
-      "subtype": "NUMBER",
-      "label": "Daily Budget ($)",
-      "placeholder": "0.00",
-      "error_message": "Budget is required.",
-      "required": true
-    },
-
-    {
-      "id": "number_regex",
-      "order": 6,
-      "type": "TEXT",
-      "subtype": "NUMBER",
-      "label": "Discount Code (digits only, exactly 6)",
-      "placeholder": "123456",
-      "error_message": "Must be exactly 6 digits.",
-      "validation_regex": "[0-9]{6}",
-      "required": false
-    },
-
-    {
-      "id": "multiline_required",
-      "order": 7,
-      "type": "TEXT",
-      "subtype": "MULTILINE",
-      "label": "Campaign Description",
-      "placeholder": "Describe your campaign…",
-      "max_length": 200,
-      "error_message": "Description is required.",
-      "required": true
-    },
-
-    {
-      "id": "multiline_optional",
-      "order": 8,
-      "type": "TEXT",
-      "subtype": "MULTILINE",
-      "label": "Internal Notes (optional)",
-      "placeholder": "Any internal notes…",
-      "required": false
-    },
-
-    {
-      "id": "uri_required",
-      "order": 9,
-      "type": "TEXT",
-      "subtype": "URI",
-      "label": "Landing Page URL",
-      "placeholder": "https://example.com",
-      "error_message": "A landing page URL is required.",
-      "validation_regex": "https?://[^\\s]+",
-      "required": true
-    },
-
-    {
-      "id": "uri_optional",
-      "order": 10,
-      "type": "TEXT",
-      "subtype": "URI",
-      "label": "Privacy Policy URL (optional)",
-      "placeholder": "https://example.com/privacy",
-      "required": false
-    },
-
-    {
-      "id": "secure_required",
-      "order": 11,
-      "type": "TEXT",
-      "subtype": "SECURE",
-      "label": "API Secret Key",
-      "placeholder": "Paste your secret key",
-      "max_length": 64,
-      "error_message": "Secret key is required.",
-      "required": true
-    },
-
-    {
-      "id": "secure_regex",
-      "order": 12,
-      "type": "TEXT",
-      "subtype": "SECURE",
-      "label": "PIN (exactly 4 digits)",
-      "placeholder": "••••",
-      "error_message": "PIN must be exactly 4 digits.",
-      "validation_regex": "[0-9]{4}",
-      "required": true
-    },
-
-    {
-      "id": "dropdown_single_required",
-      "order": 13,
-      "type": "DROPDOWN",
-      "label": "Campaign Objective",
-      "allow_multiple": false,
-      "default_values": [],
-      "error_message": "Please choose a campaign objective.",
-      "required": true,
-      "options": [
-        { "id": "obj_awareness",    "label": "Brand Awareness" },
-        { "id": "obj_traffic",      "label": "Website Traffic" },
-        { "id": "obj_conversions",  "label": "Conversions" },
-        { "id": "obj_retention",    "label": "Customer Retention" }
-      ]
-    },
-
-    {
-      "id": "dropdown_single_default",
-      "order": 14,
-      "type": "DROPDOWN",
-      "label": "Billing Currency",
-      "allow_multiple": false,
-      "default_values": ["cur_usd"],
-      "required": false,
-      "options": [
-        { "id": "cur_usd", "label": "USD — US Dollar" },
-        { "id": "cur_eur", "label": "EUR — Euro" },
-        { "id": "cur_gbp", "label": "GBP — British Pound" },
-        { "id": "cur_inr", "label": "INR — Indian Rupee" }
-      ]
-    },
-
-    {
-      "id": "dropdown_multi_required",
-      "order": 15,
-      "type": "DROPDOWN",
-      "label": "Ad Networks",
-      "allow_multiple": true,
-      "default_values": ["net_meta"],
-      "error_message": "Select at least one ad network.",
-      "required": true,
-      "options": [
-        { "id": "net_google",   "label": "Google Search" },
-        { "id": "net_meta",     "label": "Meta Platforms" },
-        { "id": "net_tiktok",   "label": "TikTok Ads" },
-        { "id": "net_linkedin", "label": "LinkedIn Ads" },
-        { "id": "net_twitter",  "label": "X (Twitter) Ads" }
-      ]
-    },
-
-    {
-      "id": "dropdown_multi_none_default",
-      "order": 16,
-      "type": "DROPDOWN",
-      "label": "Target Devices (optional)",
-      "allow_multiple": true,
-      "default_values": [],
-      "required": false,
-      "options": [
-        { "id": "dev_mobile",  "label": "Mobile" },
-        { "id": "dev_desktop", "label": "Desktop" },
-        { "id": "dev_tablet",  "label": "Tablet" }
-      ]
-    },
-
-    {
-      "id": "dropdown_empty_options",
-      "order": 17,
-      "type": "DROPDOWN",
-      "label": "Region Override (no options — edge case)",
-      "allow_multiple": false,
-      "default_values": [],
-      "error_message": "No options available.",
-      "required": false,
-      "options": []
-    },
-
-    {
-      "id": "toggle_default_false",
-      "order": 18,
-      "type": "TOGGLE",
-      
-      "default_value": false,
-      
-    },
-
-    {
-      "id": "toggle_default_true",
-      "order": 19,
-      "type": "TOGGLE",
-      "label": "Send Email Notifications",
-      "default_value": true
-    },
-
-    {
-      "id": "toggle_no_defaults",
-      "order": 20,
-      "type": "TOGGLE",
-      "label": "A/B Test Mode"
-    },
-
-    {
-      "id": "checkbox_required_links",
-      "order": 21,
-      "type": "CHECKBOX",
-      "label": "I agree to the Terms of Service and Privacy Policy.",
-      "required": true,
-      "metadata": {
-        "Terms of Service": "https://example.com/terms",
-        "Privacy Policy":   "https://example.com/privacy"
+   "theme":{
+      "background_color":"#FFFFFF",
+      "text_color":"#111827",
+      "border_color":"#D1D5DB",
+      "error_color":"#B91C1C"
+   },
+   "form_title":"Campaign Setup",
+   "fields":[
+      {
+         "id":"campaign_name",
+         "order":1,
+         "type":"TEXT",
+         "subtype":"PLAIN",
+         "label":"Campaign Name",
+         "placeholder":"e.g., Summer Sale",
+         "max_length":30,
+         "error_message":"Name is required.",
+         "required":true
       },
-      "clickable_text_color": "#2563EB"
-    },
-
-    {
-      "id": "checkbox_required_no_links",
-      "order": 22,
-      "type": "CHECKBOX",
-      "label": "I confirm the information above is accurate.",
-      "required": true
-    },
-
-    {
-      "id": "checkbox_optional",
-      "order": 23,
-      "type": "CHECKBOX",
-      "label": "Subscribe me to the product newsletter.",
-      "required": false
-    },
-
-    {
-      "id": "unknown_field_type",
-      "order": 24,
-      "type": "DATE_PICKER",
-      "label": "Campaign Start Date",
-      "required": false
-    }
-
-  ]
+      {
+         "id":"ad_networks",
+         "order":2,
+         "type":"DROPDOWN",
+         "label":"Ad Networks",
+         "allow_multiple":true,
+         "default_values":[
+            "net_meta"
+         ],
+         "required":true,
+         "options":[
+            {
+               "id":"net_google",
+               "label":"Google Search"
+            },
+            {
+               "id":"net_meta",
+               "label":"Meta Platforms"
+            }
+         ]
+      },
+      {
+         "id":"daily_budget",
+         "order":3,
+         "type":"TEXT",
+         "subtype":"NUMBER",
+         "label":"Daily Budget ($)",
+         "required":true
+      },
+      {
+         "id":"accept_legal",
+         "order":4,
+         "type":"CHECKBOX",
+         "label":"I agree to the Terms of Service.",
+         "required":true,
+         "metadata":{
+            "Terms of Service":"https://example.com/terms"
+         },
+         "clickable_text_color":"#2563EB"
+      }
+   ]
 }
